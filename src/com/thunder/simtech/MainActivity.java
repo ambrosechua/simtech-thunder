@@ -1,5 +1,7 @@
 package com.thunder.simtech;
 
+import java.io.Console;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -20,6 +22,11 @@ public class MainActivity extends Activity {
 		WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
 		webView.setWebViewClient(new WebViewClient() {
+			public void onPageFinished(WebView view, String url) {
+	            String javascript = getString(R.string.injectJS);
+	            Log.d(null, javascript);
+	            view.loadUrl(javascript);
+	        }
 			public boolean shouldOverrideUrlLoading(WebView view, String url){
 				view.loadUrl(url);
 				EditText editText = (EditText) findViewById(R.id.editText);
@@ -43,7 +50,7 @@ public class MainActivity extends Activity {
 		if (editText.getText()==null)return;
 		String url = editText.getText().toString();
 		
-		if (!url.contains("http://"))url = "http://"+url;
+		if (!url.contains("http://") && !url.contains("javascript:"))url = "http://"+url;
 		webView.loadUrl(url);
 		Log.i("AndroidDemo", "Visiting: "+url);
 	}
