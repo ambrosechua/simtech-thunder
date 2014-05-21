@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 
 		webView.loadUrl("http://www.google.com/");
 		
-		// You can add other code here if you want.
+		// I can add other codes if you want(HP)
 		
 	}
 	public void onGo(View view){
