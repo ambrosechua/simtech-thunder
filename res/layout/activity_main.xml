@@ -4,34 +4,42 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.63" >
-    </WebView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom" >
+        android:background="@drawable/ab_bottom_solid_dark_holo"
+        android:gravity="top" >
 
         <EditText
+            android:textCursorDrawable="@null"
             android:id="@+id/editText"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="fill_parent"
             android:layout_weight="0.61"
             android:ems="10"
             android:singleLine="true"
-            android:inputType="textUri">
+            android:inputType="textUri"
+            android:textColor="#ffffff">
 
             <requestFocus />
         </EditText>
 
-        <Button
-            android:onClick="onGo"
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DIE" />
+            android:src="@drawable/ic_menu_forward"
+            android:onClick="onGo"
+            android:contentDescription="Go!"
+		    style="?android:attr/borderlessButtonStyle" />
+
     </LinearLayout>
+    
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.63">
+    </WebView>
+
 
 </LinearLayout>
